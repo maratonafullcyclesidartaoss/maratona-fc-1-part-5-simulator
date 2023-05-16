@@ -1,5 +1,10 @@
 FROM golang:latest
 
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
+
+USER nonroot
+
 WORKDIR /app
 
 COPY ./destinations .
